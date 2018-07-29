@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools">
+
+	<data>
+
+		<import type="android.view.View" />
+
+		<variable
+			name="game"
+			type="br.com.paulosalvatore.movilenext_aula3_gameinfo.model.Game" />
+	</data>
+
+	<android.support.constraint.ConstraintLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		tools:context=".ui.gameinfo.GameInfoActivity">
+
+		<ImageView
+			android:id="@+id/ivImage"
+			android:layout_width="100dp"
+			android:layout_height="100dp"
+			android:layout_marginLeft="8dp"
+			android:layout_marginStart="8dp"
+			android:layout_marginTop="8dp"
+			app:image="@{game.imageUrl}"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toTopOf="parent" />
+
+		<TextView
+			android:id="@+id/tvName"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_marginEnd="8dp"
+			android:layout_marginLeft="8dp"
+			android:layout_marginRight="8dp"
+			android:layout_marginStart="8dp"
+			android:layout_marginTop="8dp"
+			android:text="@{game.name}"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintStart_toEndOf="@+id/ivImage"
+			app:layout_constraintTop_toTopOf="@+id/ivImage"
+			tools:text="Game Name" />
+
+		<TextView
+			android:id="@+id/tvYear"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_marginEnd="8dp"
+			android:layout_marginLeft="8dp"
+			android:layout_marginRight="8dp"
+			android:layout_marginStart="8dp"
+			android:layout_marginTop="8dp"
+			android:text="@{String.valueOf(game.launchYear)}"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintStart_toEndOf="@+id/ivImage"
+			app:layout_constraintTop_toBottomOf="@+id/tvName"
+			tools:text="Year" />
+
+		<TextView
+			android:id="@+id/tvClassic"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_marginEnd="8dp"
+			android:layout_marginLeft="8dp"
+			android:layout_marginRight="8dp"
+			android:layout_marginStart="8dp"
+			android:layout_marginTop="8dp"
+			android:text="Classic"
+			android:textColor="#831111"
+			android:visibility="@{game.isClassic ? View.VISIBLE : View.GONE}"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintHorizontal_bias="0.0"
+			app:layout_constraintStart_toEndOf="@+id/ivImage"
+			app:layout_constraintTop_toBottomOf="@+id/tvYear"
+			tools:text="Year" />
+
+		<TextView
+			android:id="@+id/tvRating"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_marginEnd="8dp"
+			android:layout_marginLeft="8dp"
+			android:layout_marginRight="8dp"
+			android:layout_marginStart="8dp"
+			android:layout_marginTop="8dp"
+			android:text="@{String.valueOf(game.rating)}"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintStart_toEndOf="@+id/ivImage"
+			app:layout_constraintTop_toBottomOf="@+id/tvClassic"
+			tools:text="Rating" />
+
+		<EditText
+			android:id="@+id/etName"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_marginEnd="8dp"
+			android:layout_marginLeft="8dp"
+			android:layout_marginRight="8dp"
+			android:layout_marginStart="8dp"
+			android:layout_marginTop="8dp"
+			android:ems="10"
+			android:hint="Game Name"
+			android:inputType="textPersonName"
+			android:text="@={game.name}"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toBottomOf="@+id/tvRating" />
+
+		<android.support.design.widget.FloatingActionButton
+			android:id="@+id/fabAdd"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginBottom="8dp"
+			android:layout_marginEnd="8dp"
+			android:layout_marginRight="8dp"
+			android:src="@android:drawable/ic_input_add"
+			android:tint="#FFFFFF"
+			app:layout_constraintBottom_toBottomOf="parent"
+			app:layout_constraintEnd_toEndOf="parent" />
+
+
+	</android.support.constraint.ConstraintLayout>
+</layout>
